@@ -1,0 +1,45 @@
+body {
+  color: #444;
+}
+.header {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+  background: #1e90ff;
+  padding: 10px;
+  margin-bottom: 1rem;
+}
+.header .nav .header_menu {
+  display: flex;
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .nav .header_menu li {
+  list-style: none;
+  color: #fff;
+}
+.header .nav .header_menu li a {
+  color: #fff;
+}
+.header .nav .header_menu_title {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+  font-weight: bold;
+}
+.header .nav .header_menu_inner {
+  display: flex;
+  padding: 0;
+  align-items: center;
+}
+.header .nav .header_menu_inner .listNew:after {
+  font-family: "Font Awesome 5 Free";
+  content: "\f044";
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 20px;
+}
