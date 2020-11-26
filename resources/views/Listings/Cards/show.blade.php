@@ -10,6 +10,7 @@
         <div class="container">
             <div class="cardContents">
                 <div class="cardContents_title">
+                    {{-- {{dd($card->id)}} --}}
                     <div>タイトル</div>
                     <h2>{{ $card->title }}</h2>
                 </div>
@@ -23,11 +24,14 @@
                 </div>
                 <div class="cardContents_btnArea">
                     <a class="edit_btn" href="{{ route('card.edit', ['card_id' => $card->id,'list_id' => $listing->id]) }}">編集する</a>
-                    <form action="#" method="POST" class="">
-                        <button class="btn text-danger delete_btn" onclick="return confirm('このカードを削除して大丈夫ですか?')" rel="nofollow" data-method="delete">
+                    <form action="{{ route('card.destroy', ['card_id' => $card->id,'list_id' => $listing->id]) }}" class="">
+                        @method('DELETE')
+                        @csrf
+                        <button class="btn text-danger delete_btn" rel="nofollow">
                             削除する
                         </button>
                     </form>
+                </div>
                 </div>
             </div>
         </div>

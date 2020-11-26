@@ -65,9 +65,9 @@ class ListingController extends Controller
     public function edit($id){
         $listing = Listing::find($id);
         return view('listings/edit',['listing' => $listing]);
-        }
+    }
 
-        // 入力した値を編集する
+    // 入力した値を編集する
         public function update(Request $request){
         //バリデーション（入力値チェック）
         $validator = Validator::make($request->all() , ['list_name' => 'required|max:255', ]);
@@ -83,17 +83,17 @@ class ListingController extends Controller
         return redirect('/');
     }
 
-    // 削除画面の表示
-    // public function delete($id){
-    //   $listing = Listing::find($id);
-    //   return view('listings/delete',['listing' => $listing]);
-    // }
+        // 削除画面の表示
+        // public function delete($id){
+        // $listing = Listing::find($id);
+        // return view('listings/delete',['listing' => $listing]);
+        // }
 
-    // 削除機能
-    public function destroy(Request $request){
+        // 削除機能
+        public function destroy(Request $request){
         $listing = Listing::find($request->id);
         // dd($id);
         $listing -> delete();
         return redirect('/');
-    }
+        }
 }
