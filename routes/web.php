@@ -47,4 +47,9 @@ Route::GET('/Listings/{list_id}/Cards/{card_id}/edit', 'CardController@edit')->n
 
 Route::PATCH('/Listings/{list_id}/Cards/{card_id}/edit', 'CardController@update')->name('card.update');
 
+// Route::GET('/Listings/{list_id}/Cards','CardController@destroy')->name('card.destroy');
+// Route::DELETE('/Listings/{list_id}/Cards/{card_id}/','CardController@destroy')->name('card.destroy');
+
+// この書き方をカードのidを渡せるように変えれば削除機能を実装できるはず
+Route::GET('/Listings/{list_id}/Cards/{card_id}/delete','CardController@destroy')->name('card.destroy');
 

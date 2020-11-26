@@ -16,7 +16,7 @@
                 {{ $listing->title }}
             </h2>
         </div>
-        <form class="card-body" id="edit_card" action="" accept-charset="UTF-8" method="post">
+        <form class="card-body" id="edit_card" action="{{ route('card.update', ['card_id' => $card->id,'list_id' => $listing->id]) }}" accept-charset="UTF-8" method="post">
             @method('PATCH')
             @csrf
             {{-- PATCHメソッド追加 --}}
@@ -31,9 +31,11 @@
             </div>
             <div class="form-group">
                 <label>リスト名</label>
-                <select class="form-control" name="listing_id">
+                <select class="form-control" name="list_id">
                 {{-- 自分の他のリストを表示する処理--}}
-                
+                @foreach ($listings as $listing)
+                    <option value="">{{ $listing->title }}</option>
+                @endforeach
                 </select>
             </div>
             <div class="text-center"><input type="submit" name="commit" value="更新する" class="btn btn-secondary" data-disable-with="更新する"></div>
