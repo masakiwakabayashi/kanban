@@ -84,6 +84,7 @@ class CardController extends Controller
         $card->title = $request->title;
         $card->content = $request->content;
         $card->list_id = $request->list_id;
+        // dd($card->list_id);
         $card->save();
         return redirect('/');
     }

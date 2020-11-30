@@ -34,8 +34,15 @@
                 <select class="form-control" name="list_id">
                 {{-- 自分の他のリストを表示する処理--}}
                 @foreach ($listings as $listing)
-                    <option value="">{{ $listing->title }}</option>
+                    @if(old('list_id', $card->list_id) == $listing->id)
+                        <option value="{{ $listing->id }}" selected>{{ $listing->title }}</option>
+                    @else
+                        <option value="{{ $listing->id }}">{{ $listing->title }}</option>
+                    @endif
                 @endforeach
+                {{-- @foreach ($listings as $listing)
+                    <option  value="{{ $listing->id }}">{{ $listing->title }}</option>
+                @endforeach --}}
                 </select>
             </div>
             <div class="text-center"><input type="submit" name="commit" value="更新する" class="btn btn-secondary" data-disable-with="更新する"></div>
