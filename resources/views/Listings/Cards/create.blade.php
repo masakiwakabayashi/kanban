@@ -3,7 +3,6 @@
 @push('css')
     <link href="{{ asset('css/list_new.css') }}" rel="stylesheet">
     <link href="{{ asset('css/card.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/header.css') }}" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -16,9 +15,9 @@
                 {{ $listing->title }}
             </h2>
         </div>
-        <form class="card-body" action="{{ route('card.store', ['list_id' => $listing->id]) }}" accept-charset="UTF-8" data-remote="true" method="post">
+        <form class="card-body" action="{{ route('card.store', ['listing_id' => $listing->id]) }}" accept-charset="UTF-8" data-remote="true" method="post">
             @csrf
-            <input type="hidden" name="list_id" value="{{ $listing->id }}">
+            <input type="hidden" name="listing_id" value="{{ $listing->id }}">
             <div class="form-group">
                 <label for="card_title">タイトル</label>
                 <input id="card_title" autofocus="autofocus" class="form-control" placeholder="カード名" type="text" name="title" value="{{ old('title') }}">

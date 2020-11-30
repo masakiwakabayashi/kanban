@@ -2,7 +2,6 @@
 
 @push('css')
     <link href="{{ asset('css/card_show.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/header.css') }}" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -10,7 +9,6 @@
         <div class="container">
             <div class="cardContents">
                 <div class="cardContents_title">
-                    {{-- {{dd($card->id)}} --}}
                     <div>タイトル</div>
                     <h2>{{ $card->title }}</h2>
                 </div>
@@ -23,8 +21,8 @@
                     <div>{{ $listing->title }}</div>
                 </div>
                 <div class="cardContents_btnArea">
-                    <a class="edit_btn" href="{{ route('card.edit', ['card_id' => $card->id,'list_id' => $listing->id]) }}">編集する</a>
-                    <form action="{{ route('card.destroy', ['card_id' => $card->id,'list_id' => $listing->id]) }}" class="">
+                    <a class="edit_btn" href="{{ route('card.edit', ['card_id' => $card->id,'listing_id' => $listing->id]) }}">編集する</a>
+                    <form  method="POST" action="{{ route('card.destroy', ['card_id' => $card->id,'listing_id' => $listing->id]) }}" class="">
                         @method('DELETE')
                         @csrf
                         <button class="btn text-danger delete_btn" rel="nofollow">

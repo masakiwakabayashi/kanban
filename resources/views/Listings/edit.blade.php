@@ -1,8 +1,5 @@
 @extends('layouts.app')
 
-@push('css')
-    <link href="{{ asset('css/header.css') }}" rel="stylesheet">
-@endpush
 
 @push('css')
     <link href="{{ asset('css/list_new.css') }}" rel="stylesheet">
@@ -12,7 +9,7 @@
     <div class="card">
         <!-- バリデーションエラーの場合に表示 -->
         @include('common.errors')
-        <form action="" method="POST" class="form-horizontal card-body">
+        <form action="{{ route('listing.update', ['id' => $listing->id]) }}" method="POST" class="form-horizontal card-body">
             @method('PATCH')
             @csrf
             <div class="form-group"> 
