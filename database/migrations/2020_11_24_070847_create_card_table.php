@@ -20,7 +20,7 @@ class CreateCardTable extends Migration
             $table->biginteger('list_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('list_id')->references('id')->on('listings');
+            $table->foreign('list_id')->references('id')->on('listings')->onDelete('cascade');
         });
     }
 
